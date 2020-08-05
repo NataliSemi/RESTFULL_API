@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Product</h1>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row"></div>
+        <div class="col-md-4">
+<h2>{{ product.name }}</h2>
+
+<p>{{ product.description }}</p>
+
+  <p class="price sale-price">
+      <img width="500" src="{{ MEDIA_URL }}{{ product.photo }}" />
+    <strong>SALE: ${{ product.current_price|floatformat:2 }}</strong>
+  </p>
+
+  </div>
+</div>
+</main>
+{% endblock %}

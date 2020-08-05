@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Products{% endblock %}
+{% block content %}
+  <body>
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Products</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+                {% for product in products %}
+                <h2>{{ product.name }}</h2>
+        {% if product.photo %}
+  <p>
+      <a href="{% url 'show-product' product.id %}">
+        <img width="500" src="{{ MEDIA_URL }}{{ product.photo }}" />
+      </a>
+    </p>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+  </div>
+</main>
+  {% endblock %}
